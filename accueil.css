@@ -1,0 +1,410 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0d1b2a, #1a237e, #000000); /* Dégradé sombre de fond */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: 70px;
+    margin-right: 15px;
+}
+
+.logo span {
+    font-size: 30px;
+    font-weight: bold;
+    background: linear-gradient(to right, #6ec1e4, #1a75ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+.search-bar {
+    padding: 8px 40px 8px 15px;
+    width: 250px;
+    transition: width 0.4s ease-in-out;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.search-bar:focus {
+    width: 300px;
+    outline: none;
+}
+
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Conteneur des icônes */
+.icon-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.icon-container i {
+    font-size: 24px; /* Taille de l'icône */
+    padding: 12px; /* Espacement interne des icônes */
+    border-radius: 50%; /* Cercle */
+    background: linear-gradient(to right, #6ec1e4, #1a75ff); /* Dégradé de fond */
+    color: white; /* Couleur de l'icône */
+    width: 50px; /* Largeur du cercle */
+    height: 50px; /* Hauteur du cercle */
+    display: flex;
+    justify-content: center; /* Centrer l'icône horizontalement */
+    align-items: center; /* Centrer l'icône verticalement */
+    transition: transform 0.3s ease; /* Animation au survol */
+}
+
+.icon-container a {
+    text-decoration: none;
+}
+
+.icon-container i:hover {
+    transform: scale(1.1); /* Agrandissement au survol */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row; /* Reste en ligne */
+        align-items: center; /* Centre les éléments */
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 70px;
+        height: 60px;
+    }
+
+    .logo span {
+        font-size: 24px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        position: absolute; /* Fixe le bouton en haut */
+        top: 26px;
+        right: 20px;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001; /* Assure que le bouton reste au-dessus */
+    }
+
+    .navbar.open .nav-links {
+        display: flex;
+    }
+}
+
+/* Liens de navigation */
+.nav-links a {
+    text-decoration: none;
+    font-size: x-large;
+    padding: 5px 15px;
+    color: white;
+    background: white;
+    background-size: 200%;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: color 0.3s, background-color 0.3s, background-position 0.4s ease-in-out;
+    border-radius: 5px;
+    font-weight: 500;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline-block;
+    position: relative;
+}
+
+/* Effet de survol */
+.nav-links a:hover {
+    background-color: #0288d1;
+    color: linear-gradient(90deg, #6ec1e4, #1a75ff, #6ec1e4);
+    background-position: 100% 0;
+}
+
+.overlay {
+    height: 0; /* Initialement caché */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:#040735;
+    overflow: hidden;
+    transition: height 0.5s ease;
+    z-index: 9999;
+}
+.overlay a:active {
+    color: white; /* Changer la couleur en rouge tomate */
+    transform: scale(0.95); /* Lien légèrement rétréci lorsqu'il est cliqué */
+}
+
+.overlay a:active i { /* Animation spécifique pour l'icône au clic */
+    color:white; /* Icône change aussi de couleur */
+    transform: rotate(360deg); /* Faire tourner l'icône lors du clic */
+    transition: transform 0.3s ease-in-out; /* Transition douce pour la rotation */
+}
+
+/* Contenu de l'overlay */
+.overlay-content {
+    position: relative;
+    top: 5%;
+    width: 100%;
+    text-align: left; /* Aligne le texte à gauche */
+    margin-top: 30px;
+    padding-left: 25px; /* Ajouter un peu de marge à gauche si nécessaire */
+}
+
+/* Bouton pour fermer */
+.overlay .closebtn {
+    position: absolute;
+    right: 20px;
+    font-size: 60px;
+    color: #f1f1f1;
+}
+
+/* Liens de navigation */
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: white;
+    display: block;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.overlay a:hover {
+    color: #f1f1f1;
+}
+
+/* Icône du menu toggle */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: xx-large;
+}
+
+/* Afficher l'icône menu sur petits écrans */
+@media (max-width: 1190px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Masquer la barre de liens normale sur petits écrans */
+    .nav-links,
+    .icon-container {
+        display: none;
+    }
+}
+
+/* Masquer l'icône utilisateur spécifique à la tablette sur les écrans de bureau et mobile */
+.tablet-user-icon {
+    display: none;
+}
+
+/* Styles de l'icône utilisateur pour toutes les icônes dans .icon-container */
+.icon-container i, .tablet-user-icon i {
+    font-size: 24px;
+    padding: 12px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #6ec1e4, #1a75ff);
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+/* Supprime la décoration de lien pour toutes les icônes */
+.icon-link {
+    text-decoration: none;
+}
+
+/* Effet de survol pour agrandir légèrement les icônes */
+.icon-container i:hover, .tablet-user-icon i:hover {
+    transform: scale(1.1); /* Agrandit légèrement les icônes au survol */
+}
+
+/* Masquer les icônes pour les petits écrans (moins de 800px) et les grands écrans (plus de 1190px) */
+@media (max-width: 1190px) and (min-width: 800px) {
+    .icon-container {
+        display: flex;
+        align-items: center;
+    }
+    .icon-container .fa-comments,
+    .icon-container .fa-cogs {
+        display: inline-block; /* Affiche les icônes dans cette plage */
+    }
+}
+/* Masquer les éléments 'Chat' et 'Settings' sur les écrans entre 800px et 1190px */
+@media (max-width: 1190px) and (min-width: 800px) {
+    .mobile-hide {
+        display: none !important; /* Force le masquage avec !important */
+    }
+}
+@media (max-width: 800px) {
+    .search-container {
+        display: none;
+    }
+}
+.loupe-recherche-container {
+    display: none;
+  }
+  
+  @media (max-width: 800px){
+.loupe-recherche-container {
+    position: absolute;
+    top: 27px;
+    right: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+    z-index: 2;
+  
+  }
+  
+  .loupe-icon {
+    cursor: pointer;
+  font-size: 24px;
+  color: white;
+  transition: color 0.3s;
+  margin-top: 2px;
+  margin-right: -9px;
+  }
+  
+  .recherche-bar {
+ display: none;
+  border: 3px solid rgb(14, 16, 36);
+  border-radius: 4px;
+  padding: 5px 9px;
+  font-size: 16px;
+  width: 200px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  background-color: azure;
+  position: absolute;
+  right: 40px;
+  height: 40px;
+  }
+  
+  .recherche-bar.active {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  }
+/* Footer global avec une largeur complète et une position fixe en bas */
+footer {
+    background-color: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+    color: white;
+    width: 100%;
+    padding: 10px 20px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+/* Style pour l'email et l'icône en ligne */
+#toutemail {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    gap: 8px; /* Espace entre l'icône et l'email */
+}
+
+#toutemail i {
+    font-size: 20px;
+}
+
+#copyright {
+    margin: 0;
+    font-size: 14px;
+    color: white;
+}
+
+/* Style responsive pour empiler les éléments sur les petits écrans */
+@media (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #toutemail {
+        margin-bottom: 10px;
+    }
+    
+    #copyright {
+        font-size: 12px;
+    }
+}
+/*fin de hf*/

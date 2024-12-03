@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pheraxie</title>
+    <meta name="description" content="Meet Pheraxie, a charming AI that helps you keep a journal, track your moods, or even enjoy a playful gaming experience. Let Pheraxie add a touch of magic to your daily life!">
+    <meta name="keywords" content="AI, Mobile app, Productivity">
+    <meta name="author" content="pheraxie app">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="accueil.css" type="text/css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                   <a href="faq.html">
+  <img src="https://cdn.glitch.global/6c0895e8-f9d4-48e5-be97-9cc0e9ed06d0/logo.png?v=1730042041455" alt="Pheraxie Logo">
+              </a>
+                    <span>Pheraxie</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="faq.html">Home</a></li>
+                <li><a href="faq.html">Apps</a></li> <!-- App changé en Inbox -->
+                <li><a href="faq.html">Pro</a></li> <!-- Pro changé en Diamant -->
+                <li><a href="faq.html">Help</a></li>
+            </ul>
+            <div class="search-container">
+                <form action="#" method="get">
+                    <input type="text" class="search-bar" placeholder="Search...">
+                    <button type="submit" class="search-button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="icon-container">
+                <a href="faq.html" class="icon-link">
+                    <i class="fa fa-comments" title="Chat"></i>
+                </a>
+                <a href="user.html" class="icon-link">
+                    <i class="fa fa-user-circle" title="User"></i>
+                </a>
+                <a href="settings.html" class="icon-link">
+                    <i class="fa fa-cogs" title="Settings"></i>
+                </a>
+            </div>
+            <div class="loupe-recherche-container">
+                <!-- Barre de recherche -->
+                <input type="text" id="search-bar" class="recherche-bar" placeholder="Search...">
+                <!-- Icône loupe avec Font Awesome -->
+                <div class="loupe-icon" onclick="toggleSearchBar()">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              
+            <!-- Button to open the overlay navigation -->
+            <button class="menu-toggle" onclick="openNav()">
+                <i class="fa fa-bars"></i>
+            </button>
+  
+
+            <!-- The overlay -->
+            <div id="myNav" class="overlay">
+                <!-- Button to close the overlay navigation -->
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <!-- Overlay content -->
+                <div class="overlay-content">
+                    <a href="faq.html"><i class="fa fa-home"></i> &nbsp;Home</a>
+                    <a href=faq.html"><i class="fa fa-inbox"></i> &nbsp;App</a> <!-- App changé en Inbox -->
+                    <a href="faq.html"><i class="fa fa-gem"></i> &nbsp;Pro</a> <!-- Pro changé en Diamant -->
+                    <a href="faq.html"><i class="fa fa-question-circle"></i> &nbsp;Help</a>
+                    <a href="faq.html" class="mobile-hide"><i class="fa fa-comments"></i> &nbsp;Faq</a>
+                    <a href="faq.html" class="mobile-hide"><i class="fa fa-user-circle"></i> &nbsp;User</a>
+                    <a href="faq.html" class="mobile-hide"><i class="fa fa-cogs"></i> &nbsp;Settings</a>
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <p style="text-align:center; font-size:50px; color:white;">Coucou Mendrika 
+   En vrai ce site c pas encore fini, j'essaie de creer des app mobiles et pheraxie c une intelligence artificielle qui assiste mais ça n'a rien à avoir avec les cours j'ai juste envie de le faire</p>
+    <footer>
+        <a href="mailto:pheraxieapp@gmail.com" id="toutemail">
+          <i class="fas fa-envelope"></i> 
+          <span id="email">pheraxieapp@gmail.com</span>
+        </a>
+        <p id="copyright" style="color:white;">Copyright &copy; Pheraxie. All rights reserved.</p>
+      </footer>
+    <script src="accueil.js"></script>
+</body>
+</html>
